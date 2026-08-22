@@ -78,7 +78,6 @@ Potential use cases identified during research will be evaluated using the selec
 * One includes infrared sensors and speakers for haptic feedback.
 * The sensors currently detect hands and arms up to the elbows.
 * Face tracking may potentially be possible, but this requires further investigation into available libraries.
-* The haptic feedback device currently requires an older version of the Ultra Leap plugins.
 * The plugins may be updated if the team only uses the sensors.
 
 ### 1.5.2 Display
@@ -90,6 +89,12 @@ The Looking Glass screen has a particular screen layer that can blur text. There
 * The virtual environment requires Unity or Unreal Engine.
 * The team will observe other student projects where normal webcams were used for tracking.
 * The existing speakers could potentially be retained for sensation if they support the selected use case.
+* All Unity projects must target Unity 6000.4.6f1, unless otherwise agreed with the client.
+* The project will be managed using Git and stored on the provided Gitea server.
+* The Unity Assets, Packages, and ProjectSettings folders should be tracked in Git, while generated folders such as Library should generally not be tracked.
+* Git LFS should be used for large binary assets where required.
+* The Unity application name and package name must be changed from their default values. The package name should follow the required au.edu.rmit.hudini.computing.AppName.feature format.
+
 
 # 2. Selection Criteria
 
