@@ -10,9 +10,7 @@ Telstra is Australia's largest telecommunications company, while muru-D is its i
 
 ## 1.2 The Problem
 
-muru-D wants a convincing way to "appear" in a room without actually being there, particularly for a real presentation or a quick Q&A.
-
-However, the specific business problem, primary user, target audience and use case have not yet been confirmed. At this stage, the technology and overall concept are clearer than the specific user problem the project should address.
+Muru-D wants a convincing way to "appear" in a room without actually being there, particularly for a real presentation or a quick Q&A. However, the specific business problem, primary user, target audience and use case have not yet been confirmed. At this stage, the technology and overall concept are clearer than the specific user problem the project should address. 
 
 The purpose of Sprint 1 Week 1 is to establish a clear foundation for clarifying the project requirements, including the problem, users, audience and priorities, before researching and evaluating potential use cases.
 
