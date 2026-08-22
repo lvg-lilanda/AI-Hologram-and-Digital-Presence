@@ -14,7 +14,8 @@ New to the repo? Start with `docs/SETUP_GUIDE.md` — it covers tools, the VXLab
   docs/
     SETUP_GUIDE.md    # full onboarding steps for every team member
     GIT_WORKFLOW.md   # branch model, commit format, merge & tagging rules
-  .gitignore      # standard Unity ignores
+    ASSUMPTIONS.md
+  .gitignore      # Unity ignores
   README.md
 ```
 
@@ -30,7 +31,7 @@ Details: [`docs/GIT_WORKFLOW.md`](docs/GIT_WORKFLOW.md).
 
 ## Repo hosting
 
-This repo is currently hosted on GitHub while gitea.cdirmit.co accounts are pending. That move is required eventually, since gitea is the project's official server and handles the large binary assets (Unity/LookingGlass/Ultraleap packages) better than GitHub's free tier.
+This repo is currently hosted on GitHub while gitea.cdirmit.co accounts are pending. That move is required eventually, since gitea is the project's official server and handles the large binary assets (Unity/LookingGlass/Ultraleap packages) better than GitHub's free tier. [Assuming gitea access is required]
 
 ## Team
 
