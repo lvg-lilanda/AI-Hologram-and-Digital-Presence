@@ -30,24 +30,20 @@ gh pr create --base main
 # review, merge, GitHub deletes the branch automatically
 ```
 
-`/git-feature` and `/git-hotfix` (Claude Code skills) automate exactly this. There's no
-functional difference between the two branch types — `hotfix/*` is just a naming convention to
-flag "this is an urgent fix" to reviewers.
+There's no functional difference between `feature/*` and `hotfix/*` - `hotfix/*` is just a naming convention to flag "this is urgent" to whoever's reviewing.
 
 ## Commit Messages (Conventional Commits)
 
-The `commit-msg` hook enforces this format:
+The `commit-msg` hook is not enforced yet (no CI set up) but use this format anyways.
 
 ```
 type(scope): description
-
+ 
 Examples:
-feat: add notes feature
-fix(auth): handle token expiry on refresh
-docs: update Firestore schema for notes
-refactor(backend): extract auth middleware
-test: add integration tests for health route
-chore: upgrade firebase-admin to v13
+feat(unity): add placeholder LookingGlass scene
+fix(video): Fix blured text
+docs: update SETUP_GUIDE.md with updated hardware
+chore: import Ultraleap plugin v6.15.1
 ```
 
 **Types:** `feat` · `fix` · `docs` · `style` · `refactor` · `test` · `chore` · `build` · `ci` · `perf` · `revert`
