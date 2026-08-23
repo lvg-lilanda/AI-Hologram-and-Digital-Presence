@@ -8,6 +8,8 @@ An AI integrated digital hologram: displayed via the RMIT VX Lab's LookingGlass 
 
 New to the repo? Start with `docs/SETUP_GUIDE.md` — it covers tools, the VXLab-specific packages (LookingGlass, Ultraleap, haptics), and how to open and build the placeholder project.
 
+For the Week 1 infrastructure research, including the full-stack versus no-haptics delivery comparison, VXLab constraints, onboarding, open questions, and preliminary recommendation, see [Looking Glass Technology Discovery](docs/LOOKING_GLASS_TECHNOLOGY_DISCOVERY_S1W1.md).
+
 ## Project Structure
 
 ```
@@ -15,6 +17,7 @@ New to the repo? Start with `docs/SETUP_GUIDE.md` — it covers tools, the VXLab
     SETUP_GUIDE.md    # full onboarding steps for every team member
     GIT_WORKFLOW.md   # branch model, commit format, merge & tagging rules
     ASSUMPTIONS.md
+    LOOKING_GLASS_TECHNOLOGY_DISCOVERY_S1W1.md
   .gitignore      # Unity ignores
   README.md
 ```
