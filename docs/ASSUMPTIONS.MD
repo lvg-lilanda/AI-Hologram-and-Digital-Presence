@@ -14,5 +14,5 @@ This document consists of technical assumptions which are needed to be confirmed
 | Voice cloning tool | Not yet chosen | **Open** |
 | Video generation / lip-sync tool | Not yet chosen | **Open** |
 | Unity Editor version | 6000.4.6f1, per the general HuDINi/VXLab guide | **Confirmed** |
-| Git hosting | Temporary on GitHub; will migrate to gitea.cdirmit.co once team accounts are issued (see `SETUP_GUIDE.md`, "Repo hosting & migration") | **Temporary** |
+| Git hosting | Migrated to `gitea.cdirmit.co/2026S2_Projects/AI-Hologram-and-Digital-Presence` (see `SETUP_GUIDE.md`, "Repo hosting & migration"); GitHub copy kept as-is, no longer the primary | **Confirmed** |
 | Consenting subject for voice/video clone | Not yet decided - team member vs external member | **Open** |
