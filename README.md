@@ -31,7 +31,7 @@ Details: [`docs/GIT_WORKFLOW.md`](docs/GIT_WORKFLOW.md).
 
 ## Repo hosting
 
-This repo is currently hosted on GitHub while gitea.cdirmit.co accounts are pending. That move is required eventually, since gitea is the project's official server and handles the large binary assets (Unity/LookingGlass/Ultraleap packages) better than GitHub's free tier. [Assuming gitea access is required]
+This repo is hosted on `gitea.cdirmit.co` (`2026S2_Projects/AI-Hologram-and-Digital-Presence`), the project's official server — it handles the large binary assets (Unity/LookingGlass/Ultraleap packages) better than GitHub's free tier. The original GitHub repo is kept as a historical copy only.
 
 ## Team
 
