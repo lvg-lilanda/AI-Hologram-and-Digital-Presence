@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5932e42183c195647860060d5d66b3ce, type: 3}
+  m_Name: OpenCloseBrush
+  m_EditorClassIdentifier: 
+  brushName: Open-Close
+  primitiveParams:
+  - parameter: 2
+    value: 0.001
+  - parameter: 3
+    value: 0.001
+  - parameter: 0
+    value: 60
+  - parameter: 4
+    value: 1
+  - parameter: 5
+    value: 1
+  animatorTransforms:
+  - animatorTransform: 1
+    transformArray:
+    - 1.1111112
+    - 0
+    - 0
+    - 0
+    - 1.111111
+    - 0
+    - 0
+    - 0
+    - 1
+  - animatorTransform: 2
+    transformArray:
+    - 0.9
+    - 0
+    - 0
+    - 0
+    - 0.9
+    - 0
+    - 0
+    - 0
+    - 1
+  painterNodes: []
+  painterMode: 0
+  painterRepeatCount: 0
+  envelopeNodes: []
+  envelopeMode: 0
+  envelopeRepeatCount: 0
+  hapECommands:
+  - command: 8
+    value: 1
+  - command: 9
+    value: 1
+  - command: 10
+    value: 1
+  - command: 5
+    value: 25
+  - command: 4
+    value: 25
