@@ -11,11 +11,16 @@ New to the repo? Start with `docs/SETUP_GUIDE.md` — it covers tools, the VXLab
 ## Project Structure
 
 ```
+  Assets/           # Unity project — placeholder scene (HoloTV_BaseScene), LookingGlass/Ultraleap plugins
+  Packages/         # Unity package manifest + lockfile
+  ProjectSettings/  # Unity editor/build/quality settings
   docs/
     SETUP_GUIDE.md    # full onboarding steps for every team member
     GIT_WORKFLOW.md   # branch model, commit format, merge & tagging rules
     ASSUMPTIONS.md
+  .gitattributes  # Git LFS tracking for binary assets
   .gitignore      # Unity ignores
+  .vsconfig       # Visual Studio workload config
   README.md
 ```
 

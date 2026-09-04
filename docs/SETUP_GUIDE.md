@@ -11,7 +11,7 @@ For every team member getting set up on this repo. Follow it top to bottom the f
 |---|---|---|
 | Git | latest | with Git LFS installed (`git lfs install` once, machine-wide) |
 | Unity Hub | latest | manages Editor versions |
-| Unity Editor | **6000.4.6f1** | install via Unity Hub — this is the version specified for VXLab Unity projects |
+| Unity Editor | **2022.3.40f1** | install via Unity Hub; Version 6000.4.6f1 might be used later on of any/all plugins require it |
 | A code editor | your choice | VS Code / Rider both work fine with Unity |
 
 ## 3. Project-specific packages
@@ -41,7 +41,11 @@ Branch convention: `main` is always the build-ready branch (what gets built and 
 
 ## 5. Running the placeholder
 
-The Unity project itself isn't in the repo yet (still in Research Phase — see the README). This section will be filled in once a placeholder project/scene (e.g. `HoloTV_BaseScene`) is committed, covering how to open it in Unity Hub and get it running on the LookingGlass display.
+The `HoloTV_BaseScene` project (`Assets/`, `Packages/`, `ProjectSettings/`) is committed at the repo root. To run it:
+1. Open Unity Hub → **Add** → point at the repo root (where `Assets/` lives)
+2. Unity Hub should offer to install **2022.3.40f1** if you don't already have it — accept
+3. Open the project; Unity will regenerate `Library/` on first open, which takes a while
+4. Open the relevant scene under `Assets/Scenes` to see the placeholder
 
 ## 6. Repo hosting & migration (GitHub → gitea) — done
 

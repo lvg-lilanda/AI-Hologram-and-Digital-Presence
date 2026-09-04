@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: c876a1cd5deb7164086621cf0dc44079
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Museo Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 025398b62c5df17479d4f5c364ac0d7b, type: 3}
+  - {fileID: 12800000, guid: d2262f39988c3bc41ad3243163941982, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
