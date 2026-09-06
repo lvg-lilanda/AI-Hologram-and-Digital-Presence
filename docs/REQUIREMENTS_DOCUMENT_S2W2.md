@@ -18,12 +18,12 @@ Fixed/ Pre-recorded Speech Audio -> Digital Human or Placeholder -> Visual and A
 The Week 3 prototype is intended to establish a working foundation.
 
 ## MVP Requirements
-ID | Requirements | Priority
-R-01 | The prototype shall produce a demonstrable visual output representing the digital human concept. | High
-R-02 | The prototype shall support fixed or pre-recorded speech audio for the Week 3 demonstration. | High
-R-03 | The prototype should display a digital human where technically feasible. | Moderate 
-R-04 | The prototype may support visible mouth movement or lip synchronisation where technically feasible. | Low
-
+| ID | Requirements | Priority |
+| -- | -------------| -------- |
+| R-01 | The prototype shall produce a demonstrable visual output representing the digital human concept. | High |
+| R-02 | The prototype shall support fixed or pre-recorded speech audio for the Week 3 demonstration. | High |
+| R-03 | The prototype should display a digital human where technically feasible. | Moderate |
+| R-04 | The prototype may support visible mouth movement or lip synchronisation where technically feasible. | Low |
 
 ## Technical Investigation
 The technologies identified during Week 2 are potential options and are not confirmed as the final technical architecture.
