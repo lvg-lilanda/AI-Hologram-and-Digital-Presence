@@ -291,6 +291,16 @@ The final choice between Option 1 and Option 2 should not be made from documenta
 
 ---
 
+## Local Reproduction Status
+
+Independent local testing by Dinesh could not be completed because the project requires Unity `2022.3.40f1`, while the available local machine is configured with Unity `6000.4.6f1`. The local Unity licence configuration also prevented a headless compatibility test from completing. Therefore, the project remains hardware-unverified on Dinesh's machine.
+
+However, Linen requested that the Project Manager, BA, and UX team members independently run the project on their local machines. They confirmed that the project opened successfully, with no C# compilation issues or package-resolution errors reported.
+
+This provides team-level confirmation that the current project setup can open locally. Looking Glass hardware validation remains outstanding and must be completed in the VXLab.
+
+---
+
 ## 13. Evidence and References
 
 - Looking Glass Factory. *Looking Glass Unity Plugin* (plugin version, Unity 6 and URP requirements, Bridge dependency, Windows/Apple Silicon support). https://lookingglassfactory.com/software/looking-glass-unity-plugin
