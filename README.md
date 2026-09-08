@@ -1,6 +1,6 @@
 # Team 11 - Telstra AI Hologram and Digital Presence
 
-**Status: Research Phase.
+**Status: Building prototype for Demo.
 
 An AI integrated digital hologram: displayed via the RMIT VX Lab's LookingGlass unit, with hand-tracking (Ultraleap) and Haptics explored as the interaction layer. This is a native LookingGlass/Unity app, it runs on the LookingGlass hardware in VXLab. Full brief context lives in the team's Project Charter.
 

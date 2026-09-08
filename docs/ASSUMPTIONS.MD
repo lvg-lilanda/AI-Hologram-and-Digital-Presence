@@ -11,8 +11,8 @@ This document consists of technical assumptions which are needed to be confirmed
 | Engine choice | Options available to use Unity or Unreal Engine Editor. Team is proceeding with Unity because the entire VXLab software share (LookingGlass, Ultraleap, hap-e) is built around Unity. | **Confirmed** |
 | Display text clarity | The LookingGlass screen has a layer that can blur text - any UI-heavy use case idea needs to account for this. | **Confirmed constraint** |
 | Use case selection | No final use case has been selected, and the team will not commit to one until primary user, problem, priorities and feasibility are validated. | **Confirmed process** |
-| Voice cloning tool | Not yet chosen | **Open** |
-| Video generation / lip-sync tool | Not yet chosen | **Open** |
+| Voice cloning tool | Not a personal voice clone - Sprint 1 answers use a stock Azure Neural TTS voice (`en-AU-NatashaNeural`, see `Assets/Team 11/Resources/answers.json`) | **Confirmed for Sprint 1** - real voice cloning still undecided if pursued later |
+| Video generation / lip-sync tool | Not uLipSync - implemented as `VisemePlayer.cs` driving `SkinnedMeshRenderer` blend shapes from Azure-generated viseme JSON tracks (`Assets/Team 11/AI_Questions/`), sampled against the `AudioSource`'s playback position | **Partially confirmed** - pipeline built and wired into the scene; `ShapeMap` (blend-shape index mapping) still empty pending the avatar rig mapping task, so mouth is not yet driven |
 | Unity Editor version | 2022.3.40f1, per the actual `HoloTV_BaseScene` starter project's `ProjectVersion.txt` - planned to be used unless any plugins require the latest version | **Confirmed** |
 | Git hosting | Migrated to `gitea.cdirmit.co/2026S2_Projects/AI-Hologram-and-Digital-Presence` (see `SETUP_GUIDE.md`, "Repo hosting & migration"); GitHub copy kept as-is, no longer the primary | **Confirmed** |
-| Consenting subject for voice/video clone | Not yet decided - team member vs external member | **Open** |
+| Consenting subject for voice/video clone | Not applicable for Sprint 1 - the current voice is a stock Azure Neural TTS voice, not a clone of any team member or external person | **Resolved for Sprint 1** - would reopen only if a real personal voice/video clone is pursued later |
