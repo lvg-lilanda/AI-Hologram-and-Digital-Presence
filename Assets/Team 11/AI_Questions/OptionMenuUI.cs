@@ -15,6 +15,35 @@ namespace Team11.AI
         public MenuQuestionSource Menu;
         public AvatarController   Controller;
 
+        public enum MenuSpace
+        {
+            /// Lives in the 3D scene, so the Hologram Camera renders it into every
+            /// quilt view and it reads as part of the hologram. Also gives the buttons
+            /// a real position, which is what Ultraleap needs to hit them.
+            World,
+            /// Drawn after all camera rendering, flat over the top. Fine on a monitor,
+            /// wrong on a light field display. Kept so you can compare the two.
+            ScreenOverlay,
+        }
+
+        [Header("Where the menu lives")]
+        public MenuSpace Space = MenuSpace.World;
+
+        [Tooltip("World mode: what the menu is positioned relative to. Usually the avatar. " +
+                 "Falls back to this object.")]
+        public Transform Anchor;
+
+        [Tooltip("World mode: metres from the anchor. Default puts it to the avatar's right, " +
+                 "at roughly chest height, matching Hiba's wireframe.")]
+        public Vector3 WorldOffset = new Vector3(-0.75f, 1.35f, 0f);
+
+        [Tooltip("World mode: canvas units to metres. 900 units at 0.0015 is about 1.35m wide.")]
+        public float WorldScale = 0.0015f;
+
+        [Tooltip("World mode: the camera the buttons raycast against. Leave empty to use " +
+                 "the Hologram Camera or Camera.main.")]
+        public Camera EventCamera;
+
         [Header("Layout")]
         public Vector2 PanelSize   = new Vector2(420f, 70f);
         public float   PanelLeft   = 60f;
@@ -97,10 +126,29 @@ namespace Team11.AI
                                     typeof(CanvasScaler), typeof(GraphicRaycaster));
             go.transform.SetParent(transform, false);
             var canvas = go.GetComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             var scaler = go.GetComponent<CanvasScaler>();
-            scaler.uiScaleMode         = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1920f, 1080f);
+
+            if (Space == MenuSpace.ScreenOverlay)
+            {
+                canvas.renderMode          = RenderMode.ScreenSpaceOverlay;
+                scaler.uiScaleMode         = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+                scaler.referenceResolution = new Vector2(1920f, 1080f);
+                return canvas;
+            }
+
+            var cam = EventCamera != null ? EventCamera : Camera.main;
+            canvas.renderMode  = RenderMode.WorldSpace;
+            canvas.worldCamera = cam;                 // raycasting needs this in world space
+
+            var rt = (RectTransform)go.transform;
+            rt.sizeDelta  = new Vector2(900f, 700f);
+            rt.localScale = new Vector3(WorldScale, WorldScale, WorldScale);
+            rt.position   = (Anchor != null ? Anchor.position : transform.position) + WorldOffset;
+
+            // Face the viewer. The Looking Glass camera does not move, so once is enough.
+            if (cam != null) rt.forward = (rt.position - cam.transform.position).normalized;
+            else Debug.LogWarning("[OptionMenuUI] No camera found for the world-space menu. " +
+                                  "Assign Event Camera to the Hologram Camera.");
             return canvas;
         }
 

@@ -1219,6 +1219,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3019d4eebe2593e428d7b9ccb096ceda, type: 3}
+--- !u!4 &1047793999 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ca6cccb48e1854d7b8686f086bdbb2f6, type: 3}
+  m_PrefabInstance: {fileID: 796217891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!137 &1103625101 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1635335688310557410, guid: ca6cccb48e1854d7b8686f086bdbb2f6, type: 3}
@@ -4580,6 +4585,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025cc0fa7b46aa541aba29d28d35ac09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &1593517139 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7920822893500534720, guid: 3019d4eebe2593e428d7b9ccb096ceda, type: 3}
+  m_PrefabInstance: {fileID: 822430853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1935256256
 GameObject:
   m_ObjectHideFlags: 0
@@ -4615,7 +4625,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Menu: {fileID: 1935256259}
   Controller: {fileID: 1935256258}
-  PanelSize: {x: 420, y: 70}
+  Space: 0
+  Anchor: {fileID: 1047793999}
+  WorldOffset: {x: -3.5, y: 10, z: -2.5}
+  WorldScale: 0.0015
+  EventCamera: {fileID: 1593517139}
+  PanelSize: {x: 700, y: 70}
   PanelLeft: 60
   PanelTop: -160
   Spacing: 14
