@@ -908,6 +908,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: rp_carla_rigged_001_yup_a
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: ca6cccb48e1854d7b8686f086bdbb2f6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fe1841dad95b874468d915e996418253, type: 2}
+    - target: {fileID: 5866666021909216657, guid: ca6cccb48e1854d7b8686f086bdbb2f6, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: ca6cccb48e1854d7b8686f086bdbb2f6, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
