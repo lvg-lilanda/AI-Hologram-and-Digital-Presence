@@ -107,3 +107,5 @@ InitTestScene*.unity*
 
 # Unused demo asset, excluded due to LFS quota
 /Assets/MASH Virtual/
+.DS_Store
+.venv/
