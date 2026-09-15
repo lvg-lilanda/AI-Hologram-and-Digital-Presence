@@ -4822,7 +4822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Menu: {fileID: 1935256259}
   Controller: {fileID: 1935256258}
-  Space: 0
+  Space: 1
   Anchor: {fileID: 722138892}
   WorldOffset: {x: -2, y: 10, z: -2.5}
   WorldScale: 0.0015
@@ -4848,6 +4848,9 @@ MonoBehaviour:
   Menu: {fileID: 1935256259}
   Thinking: {fileID: 0}
   ThinkingAfterSeconds: 0.35
+  UseLiveService: 1
+  ServiceUrl: http://127.0.0.1:8765
+  RequestTimeoutSeconds: 30
 --- !u!114 &1935256259
 MonoBehaviour:
   m_ObjectHideFlags: 0
