@@ -25,12 +25,28 @@ namespace Team11.AI
                  "Sprint 1 answers come off disk and should never trip it.")]
         public float ThinkingAfterSeconds = 0.35f;
 
+        [Header("Sprint 2 - live AI service")]
+        [Tooltip("Off: the Sprint 1 recorded answers only. On: ask the local AI " +
+                 "service, falling back to the recordings when it cannot answer.")]
+        public bool UseLiveService = false;
+
+        [Tooltip("Where the local service listens. It binds to localhost, so this is " +
+                 "only ever 127.0.0.1 unless the service moves off the VX PC.")]
+        public string ServiceUrl = "http://127.0.0.1:8765";
+
+        [Tooltip("Give up on a single answer after this long and use a recording " +
+                 "instead. Measured on an M3 Mac, a real answer takes 5-11 seconds.")]
+        public int RequestTimeoutSeconds = 30;
+
         /// Raised with the line being spoken. The UI captions it.
         public event Action<string> Spoke;
 
         private IAnswerSource        _answers;
         private CannedAnswerSource   _canned;
+        private string               _sourceTag = "canned";
         private CancellationTokenSource _cts;
+        private LiveAnswerSource _live;
+        private string _sessionId;
         private bool _busy;
 
         private void Start()
@@ -38,7 +54,24 @@ namespace Team11.AI
             try
             {
                 _canned  = new CannedAnswerSource();
-                _answers = _canned;                  // Sprint 2 wraps this in FallbackAnswerSource
+                _answers = _canned;
+
+                if (UseLiveService)
+                {
+                    // One session id per run of the scene, so the service treats this
+                    // as one continuous conversation and its memory works. The operator
+                    // gets a fresh visitor by restarting, or by calling ResetSession().
+                    _sessionId = Guid.NewGuid().ToString("N").Substring(0, 12);
+                    _live = new LiveAnswerSource(ServiceUrl, _sessionId, RequestTimeoutSeconds);
+
+                    // The menu raises entry IDS; the service needs the human question.
+                    // PromptFor is the translation, and it is the easiest thing in this
+                    // wiring to forget - see FallbackAnswerSource.
+                    _answers = new FallbackAnswerSource(_live, _canned, _canned.PromptFor);
+                    _sourceTag = "live";
+                    Debug.Log($"[AvatarController] live service at {ServiceUrl}, " +
+                              $"session {_sessionId}");
+                }
             }
             catch (Exception e)
             {
@@ -57,6 +90,21 @@ namespace Team11.AI
             Menu.LabelFor = _canned.PromptFor;   // ids in the data, prompts on the buttons
             Menu.QuestionAsked += OnQuestion;
             Menu.Begin(_canned.RootOptions);
+        }
+
+        /// Forget this visitor. Wire to the operator's between-visitors reset so the
+        /// next person does not inherit the last one's conversation.
+        public async void ResetSession()
+        {
+            if (!UseLiveService || string.IsNullOrEmpty(_sessionId)) return;
+            using (var request = UnityEngine.Networking.UnityWebRequest.PostWwwForm(
+                       $"{ServiceUrl.TrimEnd('/')}/session/{_sessionId}/reset", ""))
+            {
+                request.timeout = 10;
+                var op = request.SendWebRequest();
+                while (!op.isDone) await Task.Yield();
+            }
+            Debug.Log("[AvatarController] conversation reset");
         }
 
         private void OnDestroy()
@@ -98,9 +146,26 @@ namespace Team11.AI
             if (answer?.Audio == null)
             {
                 if (outcome == "ok") outcome = "no audio";
-                TranscriptLog.Write("canned", id, clock.ElapsedMilliseconds, 0f, outcome);
+
+                // An answer with no audio still has the words, so caption it rather
+                // than dropping it. The Sprint 2 service returns a null audio URL
+                // whenever speech is not configured - during bring-up, or if Azure
+                // is down mid-demo - and an avatar that silently does nothing looks
+                // broken, where one that shows the line it cannot speak looks like a
+                // degraded mode. Follow-ups still advance, so the conversation is not
+                // thrown back to the root options over a missing clip.
+                if (!string.IsNullOrWhiteSpace(answer?.Text))
+                {
+                    Spoke?.Invoke(answer.Text);
+                }
+
+                TranscriptLog.Write(_sourceTag, id, clock.ElapsedMilliseconds, 0f, outcome);
                 Debug.LogWarning($"[AvatarController] nothing to play for \"{id}\" ({outcome}).");
-                Menu.Begin(_canned.RootOptions);
+
+                var fallbackOptions = answer?.FollowUps != null && answer.FollowUps.Length > 0
+                                    ? answer.FollowUps
+                                    : _canned.RootOptions;
+                Menu.Begin(fallbackOptions);
                 _busy = false;
                 return;
             }
@@ -109,7 +174,7 @@ namespace Team11.AI
             Spoke?.Invoke(answer.Text);
 
             TranscriptLog.Write(
-                answer.IsFallback ? "fallbk" : "canned",
+                answer.IsFallback ? "fallbk" : _sourceTag,
                 id, clock.ElapsedMilliseconds, answer.Audio.length,
                 Player.HasTrack ? outcome : outcome + " (no visemes)");
 

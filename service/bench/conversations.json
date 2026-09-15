@@ -1,0 +1,40 @@
+{
+  "_comment": "Multi-turn scripts. eval_grounding asks every question cold, which is not how anyone talks to a hologram - and it is why a vague follow-up hallucinating went unnoticed until someone sat down and had a conversation with it. Each script runs in one session, so turn 3 can depend on turns 1 and 2. expect is the outcome the service should reach: answered | out_of_scope | not_found.",
+  "conversations": [
+    {
+      "name": "the one that caught the hallucination",
+      "note": "Verbatim from the first hands-on session, 14 Sept 2026. The last turn answered that muru-D 'focuses on supporting startups and entrepreneurs' - not in the corpus, straight from the model's training. Regression case.",
+      "turns": [
+        {"say": "What is Telstra muru-D?", "expect": "answered"},
+        {"say": "who are you?", "expect": "answered"},
+        {"say": "what do you know about the current geo-politics?", "expect": "not_found"},
+        {"say": "ok tell me about the project", "expect": "answered",
+         "must_not_contain": ["startup", "entrepreneur", "accelerator"]}
+      ]
+    },
+    {
+      "name": "pronoun follow-ups",
+      "note": "Retrieval sees almost no signal in turns 2 and 3 unless it is given the conversation.",
+      "turns": [
+        {"say": "What display do you run on?", "expect": "answered"},
+        {"say": "why that one?", "expect": "answered"},
+        {"say": "and who chose it?", "expect": "answered"}
+      ]
+    },
+    {
+      "name": "refusal does not poison the next turn",
+      "note": "A refused question sits in history. The turn after it must still work.",
+      "turns": [
+        {"say": "What is the capital of Peru?", "expect": "not_found"},
+        {"say": "What is Telstra muru-D?", "expect": "answered"}
+      ]
+    },
+    {
+      "name": "topic change after an out-of-scope reply",
+      "turns": [
+        {"say": "How do I reset my Telstra modem password?", "expect": "out_of_scope"},
+        {"say": "Why were you created?", "expect": "answered"}
+      ]
+    }
+  ]
+}
