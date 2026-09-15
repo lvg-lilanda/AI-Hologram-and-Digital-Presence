@@ -1,0 +1,2 @@
+# Stage 3: Azure Speech - answer audio and the 55-shape facial timeline.
+azure-cognitiveservices-speech==1.42.0

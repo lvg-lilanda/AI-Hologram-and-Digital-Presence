@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "voice": "en-AU-NatashaNeural",
+  "locale": "en-AU",
+  "source": "Week 3 Digital Human Demo Script - Anuji Peiris",
+  "root": ["about", "why-created", "murud", "ask-anything"],
+  "entries": [
+    {
+      "id": "about",
+      "prompt": "Tell me about yourself?",
+      "text": "Hi! I'm a digital human created as part of the AI Hologram and Digital Presence project with Telstra muru-D. I'm part of an early exploration into what it could mean for someone to have a digital presence in a room without physically being there.",
+      "followUps": ["why-created", "ask-anything"]
+    },
+    {
+      "id": "ask-anything",
+      "prompt": "Can I ask you about anything?",
+      "text": "Not right now. At the moment, I can only respond to a set of questions that have been prepared for me. In the future, the goal is for you to ask your own questions and receive responses in real time.",
+      "followUps": ["used-for", "murud"]
+    },
+    {
+      "id": "why-created",
+      "prompt": "Why were you created?",
+      "text": "I was created because muru-D wants to explore a way to appear in a room without actually being there, like a digital presence convincing enough for a real presentation or a quick Q and A.",
+      "followUps": ["murud", "used-for"]
+    },
+    {
+      "id": "murud",
+      "prompt": "What is Telstra muru-D?",
+      "text": "Telstra is Australia's largest telecommunications company. muru-D is its innovation and incubation hub for prototyping new technologies. This makes me an experimental showcase piece rather than a customer-facing product.",
+      "followUps": ["used-for", "about"]
+    },
+    {
+      "id": "used-for",
+      "prompt": "What are you intended to be used for?",
+      "text": "That's still being explored. My final use case hasn't been decided yet. Current ideas include an interactive holographic presenter, a product demonstrator or a Telstra employee training coach.",
+      "followUps": ["about", "ask-anything"]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Team 11 - Telstra AI Hologram and Digital Presence
 
-**Status: Research Phase.
+**Status: Building prototype for Demo.
 
 An AI integrated digital hologram: displayed via the RMIT VX Lab's LookingGlass unit, with hand-tracking (Ultraleap) and Haptics explored as the interaction layer. This is a native LookingGlass/Unity app, it runs on the LookingGlass hardware in VXLab. Full brief context lives in the team's Project Charter.
 
@@ -11,11 +11,16 @@ New to the repo? Start with `docs/SETUP_GUIDE.md` — it covers tools, the VXLab
 ## Project Structure
 
 ```
+  Assets/           # Unity project — placeholder scene (HoloTV_BaseScene), LookingGlass/Ultraleap plugins
+  Packages/         # Unity package manifest + lockfile
+  ProjectSettings/  # Unity editor/build/quality settings
   docs/
     SETUP_GUIDE.md    # full onboarding steps for every team member
     GIT_WORKFLOW.md   # branch model, commit format, merge & tagging rules
     ASSUMPTIONS.md
+  .gitattributes  # Git LFS tracking for binary assets
   .gitignore      # Unity ignores
+  .vsconfig       # Visual Studio workload config
   README.md
 ```
 
@@ -31,7 +36,7 @@ Details: [`docs/GIT_WORKFLOW.md`](docs/GIT_WORKFLOW.md).
 
 ## Repo hosting
 
-This repo is currently hosted on GitHub while gitea.cdirmit.co accounts are pending. That move is required eventually, since gitea is the project's official server and handles the large binary assets (Unity/LookingGlass/Ultraleap packages) better than GitHub's free tier. [Assuming gitea access is required]
+This repo is hosted on `gitea.cdirmit.co` (`2026S2_Projects/AI-Hologram-and-Digital-Presence`), the project's official server — it handles the large binary assets (Unity/LookingGlass/Ultraleap packages) better than GitHub's free tier. The original GitHub repo is kept as a historical copy only.
 
 ## Team
 

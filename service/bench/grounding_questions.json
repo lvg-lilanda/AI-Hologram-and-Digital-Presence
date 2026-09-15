@@ -1,0 +1,23 @@
+{
+  "_comment": "Calibration set for the grounding floor. Anuji's T08 20-question evaluation set replaces the answerable list once it exists; keep the unanswerable list at least as long, because a floor tuned only on questions the avatar CAN answer will happily answer everything.",
+  "answerable": [
+    "What is Telstra muru-D?",
+    "Why were you created?",
+    "What are you intended to be used for?",
+    "Who built you?",
+    "What display do you run on?",
+    "Can I ask you anything I like?",
+    "How does the speech part work?",
+    "Is this a Telstra product?"
+  ],
+  "unanswerable": [
+    "What were last night's football scores?",
+    "Who won the AFL grand final?",
+    "How do I reset my Telstra modem password?",
+    "What is the capital of Peru?",
+    "Can you book me a flight to Sydney?",
+    "Should I switch to Optus?",
+    "What is Telstra's share price today?",
+    "How much does a Looking Glass cost to buy?"
+  ]
+}

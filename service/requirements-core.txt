@@ -1,0 +1,17 @@
+# Requires Python 3.10-3.13. NOT 3.14: pydantic-core has no 3.14 wheel yet and the
+# source build fails (PyO3 caps at 3.13). Homebrew installs python@3.14 as an ollama
+# dependency, so `python3` on a fresh Mac may well point at it - scripts/mac_local_setup.sh
+# picks a supported interpreter for you. 3.12 is the target; it has the widest wheel
+# coverage across all three stages, including the Azure Speech SDK.
+#
+# Stage 1: the service, retrieval and answering. Everything here is small and pure
+# Python or a light wheel - no torch, because embeddings go through Ollama.
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+pydantic-settings==2.7.0
+python-multipart==0.0.20
+httpx==0.28.1
+numpy==2.2.1
+pypdf==5.1.0
+pytest==8.3.4

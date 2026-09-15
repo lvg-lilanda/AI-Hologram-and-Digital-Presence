@@ -104,3 +104,22 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Unused demo asset, excluded due to LFS quota
+/Assets/MASH Virtual/
+.DS_Store
+.venv/
+
+# --- Sprint 2 local AI service (service/) ---
+# Secrets. The key lives here and nowhere else - never commit this file.
+service/.env
+# Generated at runtime: reply audio, viseme tracks, the retrieval index.
+service/var/
+# Benchmark inputs and outputs. Recorded lab audio is large and speaker-identifiable;
+# commit the result .md by hand if it is card evidence, never the .wav files.
+service/bench/samples/
+service/bench/results/
+service/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/

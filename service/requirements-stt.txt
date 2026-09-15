@@ -1,0 +1,6 @@
+# Stage 2: local speech-to-text. CPU build works; CUDA is used automatically when
+# present. Pulls ctranslate2 and an ONNX VAD - roughly 300 MB installed.
+faster-whisper==1.1.1
+# faster-whisper 1.1.1 calls requests directly in utils.py but does not declare it
+# as a dependency, so pip won't pull it in on its own.
+requests==2.34.2

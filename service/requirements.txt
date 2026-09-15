@@ -1,0 +1,14 @@
+# Everything. Installed in stages during bring-up - see scripts/mac_local_setup.sh -
+# but the VX PC and the portable bundle take the lot.
+#
+#   stage 1  requirements-core.txt   service, retrieval, answering
+#   stage 2  requirements-stt.txt    local speech-to-text
+#   stage 3  requirements-tts.txt    Azure speech + facial animation
+#
+# Note what is NOT here: sentence-transformers and torch. Embeddings come from
+# Ollama (nomic-embed-text), which is already the runtime this service needs, so
+# the install and the portable bundle both stay about 1.5 GB smaller.
+
+-r requirements-core.txt
+-r requirements-stt.txt
+-r requirements-tts.txt

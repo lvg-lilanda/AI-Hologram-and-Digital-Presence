@@ -2,16 +2,16 @@
 For every team member getting set up on this repo. Follow it top to bottom the first time; come back to individual sections later as needed.
 
 ## 1. Access
-- **Repo (Current):** ask `lvg-lilanda` to add you as a collaborator on the GitHub repo. You'll need a GitHub account and to accept the invite email.
+- **Repo (Current):** `gitea.cdirmit.co/2026S2_Projects/AI-Hologram-and-Digital-Presence` — ask `lvg-lilanda` to add you to the `AIHologramAndDigitalPresenceTeam1` team or as a collaborator directly. You'll need a gitea.cdirmit.co account.
 - **VXLab / RACE:** submit the VXLab access request form if you haven't ([Link](https://forms.office.com/r/YMcPnDuCQv)).
-- **Repo (later):** assuming gitea.cdirmit.co account are required, we will migrate to it when access is provided and further information will be communicated.
+- **Repo (old):** the GitHub repo (`github.com/lvg-lilanda/AI-Hologram-and-Digital-Presence`) is kept around as a historical copy but is no longer the primary — clone from gitea going forward.
 
 ## 2. Core tools
 | Tool | Version | Notes |
 |---|---|---|
 | Git | latest | with Git LFS installed (`git lfs install` once, machine-wide) |
 | Unity Hub | latest | manages Editor versions |
-| Unity Editor | **6000.4.6f1** | install via Unity Hub — this is the version specified for VXLab Unity projects |
+| Unity Editor | **2022.3.40f1** | install via Unity Hub; Version 6000.4.6f1 might be used later on of any/all plugins require it |
 | A code editor | your choice | VS Code / Rider both work fine with Unity |
 
 ## 3. Project-specific packages
@@ -30,8 +30,8 @@ These are the softwares shown and utilized at the VXLab.
 ## 4. Clone & branch
  
 ```
-git clone https://github.com/<org>/<repo>.git
-cd repo
+git clone https://gitea.cdirmit.co/2026S2_Projects/AI-Hologram-and-Digital-Presence.git
+cd AI-Hologram-and-Digital-Presence
 git checkout -b feature/<your-task>
 ```
  
@@ -41,16 +41,18 @@ Branch convention: `main` is always the build-ready branch (what gets built and 
 
 ## 5. Running the placeholder
 
-The Unity project itself isn't in the repo yet (still in Research Phase — see the README). This section will be filled in once a placeholder project/scene (e.g. `HoloTV_BaseScene`) is committed, covering how to open it in Unity Hub and get it running on the LookingGlass display.
+The `HoloTV_BaseScene` project (`Assets/`, `Packages/`, `ProjectSettings/`) is committed at the repo root. To run it:
+1. Open Unity Hub → **Add** → point at the repo root (where `Assets/` lives)
+2. Unity Hub should offer to install **2022.3.40f1** if you don't already have it — accept
+3. Open the project; Unity will regenerate `Library/` on first open, which takes a while
+4. Open the relevant scene under `Assets/Scenes` to see the placeholder
 
-## 6. Repo hosting & migration (GitHub → gitea)
- 
-We're starting on GitHub because gitea accounts aren't issued yet. Once they are:
- 
-1. When gitea accounts are obtained create the repo on `gitea.cdirmit.co`, initialised with the correct `.gitignore`/`.gitattributes` template for Unity (Git LFS needs to be set up at creation — retrofitting it later is painful).
-2. Push a mirror of the current GitHub history across:
+## 6. Repo hosting & migration (GitHub → gitea) — done
+
+Migrated on 2026-08-25 via gitea's "Migrate repository" (from GitHub, LFS support enabled, private, full history/branches/tags). Repo now lives at `gitea.cdirmit.co/2026S2_Projects/AI-Hologram-and-Digital-Presence`; the GitHub repo is kept as a historical copy only.
+
+If you have an existing local clone from GitHub, repoint your `origin` remote instead of re-cloning:
 ```
-   git remote add gitea https://<username>:<token>@gitea.cdirmit.co/<org>/<repo>.git
-   git push gitea --all
-   git push gitea --tags
+git remote set-url origin https://gitea.cdirmit.co/2026S2_Projects/AI-Hologram-and-Digital-Presence.git
+git fetch origin
 ```
